@@ -1,0 +1,53 @@
+docker images
+
+docker rmi <image_id>
+
+docker build -t <imagename> .
+
+# all image name should be in smallercase and no numbers and always build image with username/<imagename>
+docker build -t sairamdgr8/bank-note-api-on-kubernetes .
+
+# to check vulnerabilites on docker image
+docker scan <image> 
+
+# do docker run
+
+docker run -p 5000:5000 sairamdgr8/bank-note-api-on-kubernetes
+
+docker run --name <container name> -p <port number>:<port number> <image name>
+docker run --name  bank-note-api-on-kubernetes-container -p 5000:5000 sairamdgr8/bank-note-api-on-kubernetes
+
+
+## always docker push to dockerhub using username and image name
+docker push sairamdgr8/bank-note-api-on-kubernetes
+
+-----------
+
+
+# kubernetes check
+1) firstly create a deployment file having Service and deployment steps in it
+
+then deploy kubernetes pod 
+
+kubectl apply -f <deployment_yaml file name>
+# kubectl apply -f bank-note-api-on-kubernetes_deployment.yml
+
+
+
+
+
+kubectl get deployment
+
+kubectl get Service
+
+minikube service <service name>
+minikube service bank-note-api-on-kubernetes-service
+
+
+# kubernetes deployment learning
+
+https://medium.com/featurepreneur/deploying-a-flask-app-to-kubernetes-f05c93866aff
+
+
+# run the kubernaetes deploymwnt file with locally built docker image
+https://medium.com/swlh/how-to-run-locally-built-docker-images-in-kubernetes-b28fbc32cc1d

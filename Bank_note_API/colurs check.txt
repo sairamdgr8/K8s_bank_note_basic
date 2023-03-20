@@ -1,0 +1,3 @@
+https://www.w3schools.com/colors/colors_gradient.asp
+
+ #1ad3f0 , #060670
